@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from dotenv import load_dotenv
 import os
 import requests
@@ -10,6 +10,7 @@ load_dotenv()
 @app.route('/')
 def top():
     if request.method == "POST":
+        
         getstoredata(10, 10 ,300)
     return render_template('top.html')
 
