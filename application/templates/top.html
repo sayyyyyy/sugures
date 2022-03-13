@@ -7,23 +7,27 @@
             <h1 class="page-title">すぐレス</h1>
             <span class="">食べにいきたいお店がすぐ見つかる！</span>
         </div>
-        <div class="search-container">
-            <span>検索範囲(m)</span>
-            <select name="search-distance">
-                <option value="100">~100</option>
-                <option value="300">~300</option>
-                <option value="500">~500</option>
-                <option value="1000">~1000</option>
-                <option value="other">自分で入力する</option>
-            </select>
-            <button class="search-btn">検索する</button>
-        </div>
-        <div class="random-search-container">
-            <div class="genre"></div>
-            <button class="random-search">ランダム検索</button>
-        </div>
-        <div class="random-view-container">
-            <span>こんなお店が・・・</span>
-        </div>
+        <form action="/" method="POST">
+            <div class="search-container">
+                <span>検索範囲(m)</span>
+                <select name="search-distance">
+                    <option value="100">~100</option>
+                    <option value="300">~300</option>
+                    <option value="500">~500</option>
+                    <option value="1000">~1000</option>
+                    <option value="other">自分で入力する</option>
+                </select>
+                <div class="genre">
+                    <span>ジャンル</span>
+                </div>
+                <button class="search-btn">検索する</button>
+            </div>
+            <div class="random-search-container">
+                <button class="random-search">ランダム検索</button>
+            </div>
+            <div class="random-view-container">
+                <span>こんなお店が・・・</span>
+            </div>
+        </form>
     </div>
     {% endblock %}
