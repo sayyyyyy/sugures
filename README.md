@@ -1,3 +1,5 @@
+![すぐレス Image](application/static/images/sugures_icon.png)
+
 # すぐレス
 食べに行きたいお店がすぐ見つかる。
 
@@ -10,4 +12,5 @@
 ## 環境
 - Python 3.9.2
 - Flask 2.0.3
+- python-dotenv 0.19.2
 
