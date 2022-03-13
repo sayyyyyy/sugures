@@ -9,9 +9,6 @@ load_dotenv()
 
 @app.route('/')
 def top():
-    if request.method == "POST":
-        
-        getstoredata(10, 10 ,300)
     return render_template('top.html')
 
 @app.route('/list')
@@ -22,7 +19,8 @@ def storelist():
 def storedetail():
     return render_template('detail.html')
 
-
+def clickSearchBtn():
+    getstoredata(10, 10 ,300)
 
 def getstoredata(usr_lat, usr_lng, search_range):
 
