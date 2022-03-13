@@ -1,3 +1,5 @@
 pyvenv.cfg
 __pycache__/
 .env
+.vscode
+.deployment
