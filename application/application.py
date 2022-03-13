@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from dotenv import load_dotenv
 import os
 import requests
@@ -7,8 +7,10 @@ import json
 app = Flask(__name__)
 load_dotenv()
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def top():
+    if request.method == "POST":
+        return redirect("/list")
     return render_template('top.html')
 
 @app.route('/list')
