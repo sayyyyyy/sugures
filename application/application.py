@@ -23,14 +23,20 @@ def top():
 
 @app.route('/list', methods=["GET", "POST"])
 def storelist():
-    return render_template('list.html')
+    if request.method == "POST":
+        pass
+    else:
+        return render_template('list.html')
 
 @app.route('/detail', methods=["GET", "POST"])
 def storedetail():
-    return render_template('detail.html')
+    if request.method == "POST":
+        pass
+    else:
+        return render_template('detail.html')
     
-@app.route('/get_store_data/<lat>/<lng>', methods=["GET"])
-def aaa(lat, lng):
+@app.route('/get_store_data/lat=<usr_lat>lng=<usr_lng>range=<usr_range>', methods=["GET"])
+def getstoredata(usr_lat, usr_lng, usr_range):
     # API必要データ準備
     hotpepper_api_url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/"
     hotpepper_api_key = os.getenv('HOTPEPPER_API_KEY')
@@ -38,33 +44,7 @@ def aaa(lat, lng):
     search_start = 1
     max_ammount = 100
 
-    query = {
-        'key': hotpepper_api_key,
-        'order': 1,
-        'start': search_start,
-        'count': max_ammount,
-        # 'lat': usr_lat,
-        # 'lng': usr_lng,
-        # 'range': search_range,
-        'format': 'json'
-    }
-
-    store_raw_data = requests.get(hotpepper_api_url, query)
-    # store_data = json.loads(store_raw_data.text)['result']['shop']
-    
-    # if len(store_data) == 0:
-    #     print("データがありません")
-    #     return 0
-    return jsonify({'lat': lat, 'lng': lng})
-
-def getstoredata(usr_lat, usr_lng, search_range):
-
-    # API必要データ準備
-    hotpepper_api_url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/"
-    hotpepper_api_key = os.getenv('HOTPEPPER_API_KEY')
-
-    search_start = 1
-    max_ammount = 100
+    restaurant_list = {}
 
     query = {
         'key': hotpepper_api_key,
@@ -72,17 +52,25 @@ def getstoredata(usr_lat, usr_lng, search_range):
         'start': search_start,
         'count': max_ammount,
         'lat': usr_lat,
-        'lng': usr_lng,
-        'range': search_range,
+        'lng': usr_lng,   
+        'range': usr_range,
         'format': 'json'
     }
 
     store_raw_data = requests.get(hotpepper_api_url, query)
-    store_data = json.loads(store_raw_data.text)['result']['shop']
+    store_data = json.loads(store_raw_data.text)['results']['shop']
     
     if len(store_data) == 0:
         print("データがありません")
         return 0
-    
-    # json形式でstoreデータを返す
-    print(store_data)
+
+    for restaurant in store_data:
+        restaurant_list[restaurant['name']] = {
+            'name': restaurant['name'],
+            'access': restaurant['access'],
+            'genre': restaurant['genre']['name'],
+            'catch': restaurant['catch'],
+            'logo': restaurant['logo_image']
+        }
+
+    return jsonify(restaurant_list)
