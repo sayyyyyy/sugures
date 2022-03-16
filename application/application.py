@@ -87,9 +87,15 @@ def getdetailstoredata(store_id):
             'logo': restaurant['logo_image'],
             'station': restaurant['station_name'],
             'url': restaurant['urls']['pc'],
-            'close': restaurant['close']
+            'close': restaurant['close'],
+            'child': restaurant['child'],
+            'midnight': restaurant['midnight'],
+            'parking': restaurant['parking'],
+            'non_smoking': restaurant['non_smoking'],
+            'free_food': restaurant['free_food'],
+            'private_room': restaurant['private_room'],
+            'memo': restaurant['memo']
         }
-
     return jsonify(restaurant_list)
 
 def accessHotpepperAPI(unique_query):

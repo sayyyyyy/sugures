@@ -6,8 +6,7 @@ function successCallback(position) {
     const usr_lat = position.coords.latitude;
     const usr_lng = position.coords.longitude;
     const usr_range = document.getElementById("search-distance");
-    // getliststoredata(usr_lat, usr_lng, usr_range);
-    getdetailstoredata("J001190588");
+    getliststoredata(usr_lat, usr_lng, usr_range);
 }
 
 function errorCallback(error) {
