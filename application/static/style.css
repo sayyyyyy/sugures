@@ -2,22 +2,36 @@
     color: orange;
 }
 
-body {
-    background: black;
-    z-index: 1;
+/* ローディング画面 */
+#loading {
+    width: 100vw;
+    height: 100vh;
+    transition: all 1s;
+    background-color: orange;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
 }
-.load-circle {
-    z-index: 2;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 10px solid rgba(255, 255, 255, 0.5);
-    border-top-color: rgba(255, 255, 255, 1);
-    animation: rotate 1s linear infinite;
+.loading-elements {
+    width: 100px;
+    height: 100px;
+    margin: 200px auto;
+    background-color: #fff;
+    border-radius: 100%;
+    animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+/* ローディングアニメーション */
+@keyframes sk-scaleout {
+    0% {
+        transform: scale(0);
+    } 100% {
+        transform: scale(1.0);
+        opacity: 0;
+    }
 }
 
-@keyframes rotate {
-    to {
-        transform: rotate(360deg);
-    }
+.hidden {
+    opacity: 0;
+    visibility: hidden;
 }

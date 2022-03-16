@@ -26,7 +26,9 @@ def storelist():
     if request.method == "POST":
         pass
     else:
-        return render_template('list.html', store_data=store_data)
+        return redirect('/list')
+        # return render_template('list.html')
+        # return render_template('list.html', store_data=store_data)
 @app.route('/detail', methods=["GET", "POST"])
 def storedetail():
     if request.method == "POST":
@@ -121,3 +123,7 @@ def accessHotpepperAPI(unique_query):
         return 0
 
     return store_data
+
+@app.route('/transition/<store_data>')
+def transition(store_data):
+    return render_template('list.html', store_data=store_data)

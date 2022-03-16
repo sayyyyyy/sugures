@@ -2,14 +2,15 @@
     {% block title %}トップ{% endblock %}
 
     {% block body %}
-    <div id="">
-        <div class="loading-circle"></div>
+    <div id="loading" class="hidden">
+        <div class="loading-elements"></div>
     </div>
 
     <div class="page-body">
         <div class="title-container">  
             <h1 class="page-title">すぐレス</h1>
-            <button onclick="transition()">テストボタン</button>
+            <button onclick="callGeolocation()">テストボタン</button>
+            <button onclick="isLoading()">遷移</button>
             <span class="">食べにいきたいお店がすぐ見つかる！</span>
         </div>
         <form action="/" method="POST">
