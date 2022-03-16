@@ -40,23 +40,19 @@ def storedetail():
 def getliststoredata(usr_lat, usr_lng, usr_range):
   
     query = {
-        'key': hotpepper_api_key,
-        'order': 1,
-        'start': search_start,
-        'count': max_ammount,
+        'count': 100,
         'lat': usr_lat,
         'lng': usr_lng,   
         'range': usr_range,
-        'format': 'json'
     }
 
-    store_data = accessHotpeperAPI(query)
+    store_data = accessHotpepperAPI(query)
 
     restaurant_list = {}
 
     for restaurant in store_data:
         restaurant_list[restaurant['name']] = {
-            'id': restaurant['name'],
+            'id': restaurant['id'],
             'name': restaurant['name'],
             'access': restaurant['access'],
             'genre': restaurant['genre']['name'],
@@ -72,33 +68,45 @@ def getliststoredata(usr_lat, usr_lng, usr_range):
 def getdetailstoredata(store_id):
 
     query = {
-        'key': hotpepper_api_key,
-        'order': 1,
-        'start': 1,
         'count': 1,
         'id': store_id,
-        'format': 'json'
     }
 
-    store_data = accessHotpeperAPI(query)
+    store_data = accessHotpepperAPI(query)
     restaurant_list = {}
 
     for restaurant in store_data:
         restaurant_list[restaurant['name']] = {
             'id': restaurant['name'],
             'name': restaurant['name'],
+            'open': restaurant['open'],
+            'address': restaurant['address'],
             'access': restaurant['access'],
             'genre': restaurant['genre']['name'],
             'catch': restaurant['catch'],
-            'logo': restaurant['logo_image']
+            'logo': restaurant['logo_image'],
+            'station': restaurant['station_name'],
+            'url': restaurant['urls']['pc'],
+            'close': restaurant['close']
         }
 
     return jsonify(restaurant_list)
 
-def accessHotpepperAPI(query) {
+def accessHotpepperAPI(unique_query):
     # API必要データ準備
     hotpepper_api_url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/"
     hotpepper_api_key = os.getenv('HOTPEPPER_API_KEY')
+
+    query = {
+        'key': hotpepper_api_key,
+        'order': 1,
+        'start': 1,
+        'count': 100,
+        'format': 'json'
+    }
+
+    for key in unique_query:
+        query[key] = unique_query[key]
 
     store_raw_data = requests.get(hotpepper_api_url, query)
     store_data = json.loads(store_raw_data.text)['results']['shop']
@@ -108,4 +116,3 @@ def accessHotpepperAPI(query) {
         return 0
 
     return store_data
-}
