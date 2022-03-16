@@ -7,38 +7,40 @@
         <h1 class="page-title">すぐレス</h1>
         <span class="">食べにいきたいお店がすぐ見つかる！</span>
     </div>
-    <div class="detail-container">
-        <span class="detail-store-name"></span>
-        <img class="detail-store-img" alt="店舗イメージ">
+    <div id="{{ store_data['id'] }}" class="detail-container">
+        <span class="detail-store-name">{{ store_data['name'] }}</span>
+        <img class="detail-store-img" src="{{ store_data['logo'] }}" alt="店舗イメージ">
         <div class="store-info">
             <div class="store-operating-container">
                 <span>営業時間</span>
-                <span class="store-operating"></span>
-            </div>
-            <div class="store-tel-container">
-                <span>電話番号</span>
-                <span class="store-tel"></span>
+                <span class="store-operating">{{ store_data['open'] }}</span>
             </div>
             <div class="store-adress-container">
                 <span>住所</span>
-                <span class="store-adress"></span>
+                <span class="store-adress">{{ store_data['address'] }}</span>
             </div>
             <div class="store-station-container">
                 <span>最寄り駅</span>
-                <span class="store-station"></span>
+                <span class="store-station">{{ store_data['station'] }}</span>
             </div>
             <div class="store-access-container">
                 <span>アクセス</span>
-                <span class="store-access"></span>
+                <span class="store-access">{{ store_data['access'] }}</span>
             </div>
             <div class="store-close-container">
                 <span>定休日</span>
-                <span class="store-close"></span>
+                <span class="store-close">{{ store_data['close'] }}</span>
             </div>
             <div class="store-url-container">
                 <span>URL</span>
-                <span class="store-url"></span>
+                <span class="store-url">{{ store_data['url'] }}</span>
             </div>
+            {% if store_data['memo'] %}
+            <div class="store-memo-container">
+                <span>URL</span>
+                <span class="store-memo">{{ store_data['memo'] }}</span>
+            </div>
+            {% endif %}
         </div>
     </div>
 

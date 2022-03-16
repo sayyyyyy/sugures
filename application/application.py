@@ -32,7 +32,7 @@ def storedetail():
     if request.method == "POST":
         pass
     else:
-        return render_template('detail.html')
+        return render_template('detail.html', store_data=store_data)
 
 
 @app.route('/get_list_store_data/lat=<usr_lat>lng=<usr_lng>range=<usr_range>', methods=["GET"])
