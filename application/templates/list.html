@@ -14,17 +14,18 @@
             <select></select>
         </div>
         <div class="result-body">
-            <div class="store-container">
-                <span class="store-name"></span>
+            {% for data in store_data %}
+            <div id="{{ data['id'] }}" class="store-container">
+                <span class="store-name">{{ data['name'] }}</span>
                 <div class="store-left">
-                    <img class="store-img" alt="店舗イメージ">
+                    <img class="store-img" src ="{{ data['logo'] }}" alt="店舗イメージ">
                 </div>
                 <div class="store-right">
                     <div class="store-genre">
-                        <span class="store-main-genre"></span>
-                        <span class="store-genre-catch"></span>
+                        <span class="store-main-genre">{{ data['genre'] }}</span>
+                        <span class="store-genre-catch">{{ data['catch'] }}</span>
                     </div>
-                    <span class="store-access"></span>
+                    <span class="store-access">{{ data['access'] }}</span>
                 </div>
             </div>
         </div>

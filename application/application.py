@@ -26,8 +26,7 @@ def storelist():
     if request.method == "POST":
         pass
     else:
-        return render_template('list.html')
-
+        return render_template('list.html', store_data=store_data)
 @app.route('/detail', methods=["GET", "POST"])
 def storedetail():
     if request.method == "POST":
