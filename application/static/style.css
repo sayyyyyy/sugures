@@ -1,3 +1,7 @@
+/* スマホのメニューバーを考慮した1vh */
+/* var(--phone-vh, 1vh) */
+/* calc(var(--phone-vh, 1vh) * 0)で指定 */
+
 .page-title {
     color: orange;
 }

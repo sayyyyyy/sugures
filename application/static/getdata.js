@@ -69,6 +69,7 @@ function loading(isload) {
 }
 
 async function transition_test(data) {
+    console.log(data);
     // const body = $("#result-body");
     window.location.href = APPLICATION_URL + 'list';
     await function () {
