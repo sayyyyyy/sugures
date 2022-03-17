@@ -10,8 +10,9 @@
     <div class="page-body">
         <div class="title-container" style="background-image: url('{{ url_for('static', filename='images/dish.jpg') }}');">
             <h1 class="page-title">すぐレス</h1>
-            <span class="">食べにいきたいお店がすぐ見つかる！</span>
+            <span class="page-explanation">食べにいきたいお店がすぐ見つかる！</span>
         </div>
+        <button onclick="callGeolocation()">テストボタン</button>
         <form action="/" method="POST">
             <div class="search-container">
                 <span>検索範囲(m)</span>
@@ -30,7 +31,6 @@
             <div class="random-search-container">
                 <button class="random-search" name="random-search">ランダム検索</button>
             </div>
-            <button onclick="callGeolocation()">テストボタン</button>
             <div class="random-view-container">
                 <span>こんなお店が・・・</span>
             </div>

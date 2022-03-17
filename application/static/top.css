@@ -1,4 +1,21 @@
 .title-container {
-    background-size: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-title {
+    font-size: 3rem;
+}
+
+.page-explanation {
+    font-size: 2rem;
+}
+
+body {
+    font-size: 12px;
 }

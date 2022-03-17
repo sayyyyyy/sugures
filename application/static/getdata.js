@@ -26,7 +26,11 @@ function getliststoredata(lat, lng, range) {
         }
         return response.json()
     })
-    .then((json) => transition_test(json))
+    .then((json) => {
+        transition_test(json).then(value => {
+            console.log
+        })
+    })
     .catch((error) => console.log(error))
 }
 
@@ -37,7 +41,7 @@ function getdetailstoredata(store_id) {
         if(!response.ok) {
             console.log("データの取得に失敗しました。")
         }
-        return response.json()
+        return response.json(data)
     })
     .then((json) => console.log(json))
     .catch((error) => console.log(error))
@@ -69,15 +73,15 @@ function loading(isload) {
 }
 
 async function transition_test(data) {
-    console.log(data);
+    // console.log(data);
     // const body = $("#result-body");
+    
     window.location.href = APPLICATION_URL + 'list';
-    await function () {
-        for (let i in data) {
+    return data
+        // for (let i in data) {
             // let container = $("<div class='box'</div>");
             // container.append("<p>" + data[i] + "</p>");
             // body.append(container);
-            console.log(data[i]['name']);
-        }
-    }
+            // console.log(data[i]['name']);
+        // }
 }
