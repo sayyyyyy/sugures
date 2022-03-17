@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}検索結果{% endblock %}
-
+{% block file %}<link href="{{ url_for('static', filename='list.css') }}" rel="stylesheet"></style>{% endblock %}
 {% block body %}
 <div class="page-body">
     <div class="title-container">  
@@ -13,8 +13,8 @@
             <span>表示数 : </span>
             <select></select>
         </div>
-        <div class="result-body">
-            {% for data in store_data %}
+        <div id="result-body" class="result-body">
+            <!-- {% for data in store_data %}
             <div id="{{ data['id'] }}" class="store-container">
                 <span class="store-name">{{ data['name'] }}</span>
                 <div class="store-left">
@@ -28,7 +28,7 @@
                     <span class="store-access">{{ data['access'] }}</span>
                 </div>
             </div>
-            {% endfor %}
+            {% endfor %} -->
         </div>
         <div class="result-footer">
             

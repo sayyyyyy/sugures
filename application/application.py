@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import os
 import requests
 import json
+from pathlib import Path
 
 app = Flask(__name__)
 load_dotenv()
@@ -24,17 +25,20 @@ def top():
 @app.route('/list', methods=["GET", "POST"])
 def storelist():
     if request.method == "POST":
-        pass
+        store_data = json.loads(Path("php://input").read_text(encoding="utf-8"))
+        for i in store_data:
+            print(i)
+        return render_template('list.html', store_data=store_data)
     else:
-        return redirect('/list')
         # return render_template('list.html')
-        # return render_template('list.html', store_data=store_data)
+        return render_template('list.html')
+        
 @app.route('/detail', methods=["GET", "POST"])
 def storedetail():
     if request.method == "POST":
         pass
     else:
-        return render_template('detail.html', store_data=store_data)
+        return render_template('detail.html')
 
 
 @app.route('/get_list_store_data/lat=<usr_lat>lng=<usr_lng>range=<usr_range>', methods=["GET"])
@@ -124,6 +128,6 @@ def accessHotpepperAPI(unique_query):
 
     return store_data
 
-@app.route('/transition/<store_data>')
-def transition(store_data):
-    return render_template('list.html', store_data=store_data)
+# @app.route('/transition/<store_data>')
+# def transition(store_data):
+#     return render_template('list.html', store_data=store_data)
