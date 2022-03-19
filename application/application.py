@@ -60,7 +60,8 @@ def getliststoredata(usr_lat, usr_lng, usr_range):
             'access': restaurant['access'],
             'genre': restaurant['genre']['name'],
             'catch': restaurant['catch'],
-            'logo': restaurant['logo_image']
+            # 'logo': restaurant['logo_image']
+            'logo': restaurant['photo']['pc']['s']
     }
 
     return restaurant_list
@@ -85,7 +86,7 @@ def getdetailstoredata(store_id):
             'access': restaurant['access'],
             'genre': restaurant['genre']['name'],
             'catch': restaurant['catch'],
-            'logo': restaurant['logo_image'],
+            'logo': restaurant['photo']['pc']['l'],
             'station': restaurant['station_name'],
             'url': restaurant['urls']['pc'],
             'close': restaurant['close'],

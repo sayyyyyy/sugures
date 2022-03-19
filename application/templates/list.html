@@ -9,38 +9,37 @@
     <!-- タイトル -->
     <div class="title-container">  
         <h1 class="page-title">すぐレス</h1>
-        <span class="">食べにいきたいお店がすぐ見つかる！</span>
+        <span class="">食べに行きたいお店がすぐ見つかる！</span>
     </div>
 
     <!-- リスト全体 -->
     <div class="result-container">
         <div class="result-header">
             <span>検索結果</span>
-            <span>表示数 : </span>
-            <select></select>
         </div>
 
         <!-- 要素一つ -->
         <div id="result-body" class="result-body">
             {% for key in restaurant_list %}
-            <div id="{{ restaurant_list[key]['id'] }}" class="store-container">
-                <button onclick="transition_detail('{{ restaurant_list[key]['id'] }}')">detail he</button>
+            <div id="{{ restaurant_list[key]['id'] }}" class="store-container" onclick="transition_detail('{{ restaurant_list[key]['id'] }}')">
                 <span class="store-name">{{ restaurant_list[key]['name'] }}</span>
-                <div class="store-left">
-                    <img class="store-img" src ="{{ restaurant_list[key]['logo'] }}" alt="店舗イメージ">
-                </div>
-                <div class="store-right">
-                    <div class="store-genre">
-                        <span class="store-main-genre">{{ restaurant_list[key]['genre'] }}</span>
-                        <span class="store-genre-catch">{{ restaurant_list[key]['catch'] }}</span>
+                <div class="flex">
+                    <div class="store-left">
+                        <img class="store-img" src ="{{ restaurant_list[key]['logo'] }}" alt="店舗イメージ">
                     </div>
-                    <span class="store-access">{{ restaurant_list[key]['access'] }}</span>
+                    <div class="store-right">
+                        <div class="store-genre">
+                            <span class="store-main-genre">{{ restaurant_list[key]['genre'] }}</span>
+                            <span class="store-genre-catch">{{ restaurant_list[key]['catch'] }}</span>
+                        </div>
+                        <span class="store-access">{{ restaurant_list[key]['access'] }}</span>
+                    </div>
                 </div>
             </div>
             {% endfor %}
         </div>
 
-        <!-- 次の情報表示 -->
+        <!-- ページング -->
         <div class="result-footer">
             
         </div>

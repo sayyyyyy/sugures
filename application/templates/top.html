@@ -20,15 +20,17 @@
 
         <!-- 検索ボックス -->
         <div class="search-container">
-            <span>検索範囲(m)</span>
-            <select id="search-distance" name="search-distance">
-                <option value="100">~100</option>
-                <option value="300">~300</option>
-                <option value="500">~500</option>
-                <option value="1000">~1000</option>
-                <option value="other">自分で入力する</option>
-            </select>
-            <div class="genre">
+            <div class="range-container">
+                <span>検索範囲(m)</span>
+                <select id="search-distance" name="search-distance">
+                    <option value="100">~100</option>
+                    <option value="300">~300</option>
+                    <option value="500">~500</option>
+                    <option value="1000">~1000</option>
+                    <option value="other">自分で入力する</option>
+                </select>
+                <div class="genre">
+            </div>
                 <span>ジャンル</span>
             </div>
             <button class="search-btn" onclick="callGeolocation()">検索する</button>

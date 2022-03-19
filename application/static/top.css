@@ -14,6 +14,8 @@
 
 .page-explanation {
     font-size: 2rem;
+    -webkit-text-stroke: 1px #FFF;
+    text-stroke: 1px #FFF;
 }
 
 body {
