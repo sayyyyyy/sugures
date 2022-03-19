@@ -40,14 +40,14 @@
                             <span class="store-column-lbl">ジャンル</span>
                         </div>
                         <span class="store-main-genre">{{ restaurant_list[key]['genre'] }}</span><br>
-                        <span class="store-genre-catch">{{ restaurant_list[key]['catch'] }}</span>
                     </div>
                 </div>
                 <div class="store-column">
                     <i class="fa-solid fa-car"></i>
                     <span class="store-column-lbl">アクセス</span>
                 </div>
-                <span class="store-access">{{ restaurant_list[key]['access'] }}</span>
+                <span class="store-access">{{ restaurant_list[key]['access'] }}</span><br>
+                <span class="store-genre-catch">{{ restaurant_list[key]['catch'] }}</span>
             </div>
             {% endfor %}
         </div>

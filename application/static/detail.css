@@ -1,0 +1,6 @@
+.detail-container {
+    border: solid 1px black;
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 15px;
+}

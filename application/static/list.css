@@ -20,6 +20,9 @@
     font-weight: 300;
 }
 
+.store-img {
+    width: 100%;
+}
 
 .store-column {
     font-size: 1rem;
@@ -28,16 +31,29 @@
     margin-left: 0.5rem;
 }
 
+.store-genre-catch {
+    margin-top: 1rem;
+    color: #F68B1F;
+    font-weight: bold;
+}
+
 @media screen and (min-width:480px) { 
-    /*　画面サイズが480pxからはここを読み込む　*/
-    .store-img {
-        width: 100%;
+    #result-body {
+        display: grid;
+        grid-template-columns: 50% 50%;
     }
+
 }
 @media screen and (min-width:768px) and ( max-width:1024px) {
-    /*　画面サイズが768pxから1024pxまではここを読み込む　*/
+    #result-body {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+    }
 }
 @media screen and (min-width:1024px) {
-    /*　画面サイズが1024pxからはここを読み込む　*/
+    #result-body {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+    }
  
 }

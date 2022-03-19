@@ -16,10 +16,10 @@
 
     <!-- 店舗情報 -->
     <div id="{{ store_data['id'] }}" class="detail-container">
-        <span class="detail-store-name">{{ store_data['name'] }}</span>
+        <h2 class="detail-store-name">{{ store_data['name'] }}</h2>
         <img class="detail-store-img" src="{{ store_data['logo'] }}" alt="店舗イメージ">
         <div class="store-info">
-            <table>
+            <table border="1px">
                 <tr class="store-operating-container"> 
                     <th>営業時間</th>
                     <th class="store-operating">{{ store_data['open'] }}</th>
