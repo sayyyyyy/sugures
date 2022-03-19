@@ -1,18 +1,26 @@
 {% extends 'base.html' %}
 {% block title %}検索結果{% endblock %}
 {% block file %}<link href="{{ url_for('static', filename='list.css') }}" rel="stylesheet"></style>{% endblock %}
+
 {% block body %}
+<!-- ページ全体 -->
 <div class="page-body">
+
+    <!-- タイトル -->
     <div class="title-container">  
         <h1 class="page-title">すぐレス</h1>
         <span class="">食べにいきたいお店がすぐ見つかる！</span>
     </div>
+
+    <!-- リスト全体 -->
     <div class="result-container">
         <div class="result-header">
             <span>検索結果</span>
             <span>表示数 : </span>
             <select></select>
         </div>
+
+        <!-- 要素一つ -->
         <div id="result-body" class="result-body">
             {% for key in restaurant_list %}
             <div id="{{ restaurant_list[key]['id'] }}" class="store-container">
@@ -31,6 +39,8 @@
             </div>
             {% endfor %}
         </div>
+
+        <!-- 次の情報表示 -->
         <div class="result-footer">
             
         </div>

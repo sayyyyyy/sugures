@@ -3,37 +3,43 @@
 
     {% block file %}<link href="{{ url_for('static', filename='top.css') }}" rel="stylesheet"></style>{% endblock %}
     {% block body %}
+
+    <!-- ローディング画面 -->
     <div id="loading" class="hidden">
         <div class="loading-elements"></div>
     </div>
 
+    <!-- ページ全体/ -->
     <div class="page-body">
+
+        <!-- タイトル -->
         <div class="title-container" style="background-image: url('{{ url_for('static', filename='images/dish.jpg') }}');">
             <h1 class="page-title">すぐレス</h1>
             <span class="page-explanation">食べにいきたいお店がすぐ見つかる！</span>
         </div>
-        <button onclick="callGeolocation()">テストボタン</button>
-        <form action="/" method="POST">
-            <div class="search-container">
-                <span>検索範囲(m)</span>
-                <select id="search-distance" name="search-distance">
-                    <option value="100">~100</option>
-                    <option value="300">~300</option>
-                    <option value="500">~500</option>
-                    <option value="1000">~1000</option>
-                    <option value="other">自分で入力する</option>
-                </select>
-                <div class="genre">
-                    <span>ジャンル</span>
-                </div>
-                <button class="search-btn" onclick="callGeolocation()">検索する</button>
+
+        <!-- 検索ボックス -->
+        <div class="search-container">
+            <span>検索範囲(m)</span>
+            <select id="search-distance" name="search-distance">
+                <option value="100">~100</option>
+                <option value="300">~300</option>
+                <option value="500">~500</option>
+                <option value="1000">~1000</option>
+                <option value="other">自分で入力する</option>
+            </select>
+            <div class="genre">
+                <span>ジャンル</span>
             </div>
-            <div class="random-search-container">
-                <button class="random-search" name="random-search">ランダム検索</button>
-            </div>
-            <div class="random-view-container">
-                <span>こんなお店が・・・</span>
-            </div>
-        </form>
+            <button class="search-btn" onclick="callGeolocation()">検索する</button>
+        </div>
+
+        <!-- ランダム表示 -->
+        <div class="random-search-container">
+            <button class="random-search" name="random-search">ランダム検索</button>
+        </div>
+        <div class="random-view-container">
+            <span>こんなお店が・・・</span>
+        </div>
     </div>
     {% endblock %}

@@ -3,11 +3,16 @@
 {% block file %}<link href="{{ url_for('static', filename='detail.css') }}" rel="stylesheet"></style>{% endblock %}
 
 {% block body %}
+<!-- ページ全体 -->
 <div class="page-body">
+
+    <!-- タイトル -->
     <div class="title-container"> 
         <h1 class="page-title">すぐレス</h1>
         <span class="">食べにいきたいお店がすぐ見つかる！</span>
     </div>
+
+    <!-- 店舗情報 -->
     <div id="{{ store_data['id'] }}" class="detail-container">
         <span class="detail-store-name">{{ store_data['name'] }}</span>
         <img class="detail-store-img" src="{{ store_data['logo'] }}" alt="店舗イメージ">
@@ -36,12 +41,6 @@
                 <span>URL</span>
                 <span class="store-url">{{ store_data['url'] }}</span>
             </div>
-            <!-- {% if store_data['memo'] %}
-            <div class="store-memo-container">
-                <span>URL</span>
-                <span class="store-memo">{{ store_data['memo'] }}</span>
-            </div>
-            {% endif %} -->
         </div>
     </div>
 

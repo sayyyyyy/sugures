@@ -1,5 +1,7 @@
+// 定数の設定
 const APPLICATION_URL = 'http://127.0.0.1:5000/'
 
+// 店舗リスト画面に遷移するまで
 function callGeolocation() {
     loading('start');
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
@@ -22,12 +24,6 @@ function transition_list(lat, lng, range) {
     window.location.href = url;
 }
 
-function transition_detail(store_id) {
-    const url = APPLICATION_URL + 'detail/' + 'id=' + store_id;
-    window.location.href = url;
-}
-
-
 function loading(isload) {
     const loading_page = document.getElementById('loading');
     if (isload == "start") {
@@ -35,4 +31,12 @@ function loading(isload) {
     } else {
         loading_page.classList.add('hidden');
     }
+}
+
+//
+
+// 店舗詳細画面に遷移
+function transition_detail(store_id) {
+    const url = APPLICATION_URL + 'detail/' + 'id=' + store_id;
+    window.location.href = url;
 }
