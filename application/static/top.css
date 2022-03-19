@@ -6,14 +6,34 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(24px);
+}
+
+.title-container:before{
+    content: '';
+    background: inherit;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
 }
 
 .page-title {
     font-size: 3rem;
+    font-weight: bold;
 }
 
 .page-explanation {
     font-size: 2rem;
+    font-weight: 500;
     -webkit-text-stroke: 1px #FFF;
     text-stroke: 1px #FFF;
 }

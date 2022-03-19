@@ -6,8 +6,10 @@
 <!-- ページ全体 -->
 <div class="page-body">
 
+    <button class="back-btn" onclick="history.back()">戻る</button>
+
     <!-- タイトル -->
-    <div class="title-container">  
+    <div class="title-container">
         <h1 class="page-title">すぐレス</h1>
         <span class="">食べに行きたいお店がすぐ見つかる！</span>
     </div>
@@ -15,7 +17,7 @@
     <!-- リスト全体 -->
     <div class="result-container">
         <div class="result-header">
-            <span>検索結果</span>
+            <span class="search-res">検索結果</span>
         </div>
 
         <!-- 要素一つ -->
@@ -29,12 +31,14 @@
                     </div>
                     <div class="store-right">
                         <div class="store-genre">
-                            <span class="store-main-genre">{{ restaurant_list[key]['genre'] }}</span>
+                            <span class="store-column">ジャンル</span><br>
+                            <span class="store-main-genre">{{ restaurant_list[key]['genre'] }}</span><br>
                             <span class="store-genre-catch">{{ restaurant_list[key]['catch'] }}</span>
                         </div>
-                        <span class="store-access">{{ restaurant_list[key]['access'] }}</span>
                     </div>
                 </div>
+                <span class="store-column">アクセス</span><br>
+                <span class="store-access">{{ restaurant_list[key]['access'] }}</span>
             </div>
             {% endfor %}
         </div>

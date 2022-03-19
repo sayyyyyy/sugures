@@ -5,3 +5,24 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.search-res {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.store-name {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+.store-img {
+    width: 6rem;
+}
+
+.store-column {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #00AE95;
+    margin-left: 0.5rem;
+}

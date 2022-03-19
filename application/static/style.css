@@ -43,3 +43,19 @@
 .flex {
     display: flex;
 }
+
+body {
+    background-color: #f8f4e6;
+}
+
+.back-btn {
+    position: absolute;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10px;
+}

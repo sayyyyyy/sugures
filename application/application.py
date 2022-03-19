@@ -86,7 +86,7 @@ def getdetailstoredata(store_id):
             'access': restaurant['access'],
             'genre': restaurant['genre']['name'],
             'catch': restaurant['catch'],
-            'logo': restaurant['photo']['pc']['l'],
+            'logo': restaurant['photo']['pc']['m'],
             'station': restaurant['station_name'],
             'url': restaurant['urls']['pc'],
             'close': restaurant['close'],
@@ -119,7 +119,10 @@ def accessHotpepperAPI(unique_query):
         query[key] = unique_query[key]
 
     store_raw_data = requests.get(hotpepper_api_url, query)
+    total_num = json.loads(store_raw_data.text)['results']['results_available']
     store_data = json.loads(store_raw_data.text)['results']['shop']
+
+    print(total_num)
 
     # データが見つからなかった場合
     if len(store_data) == 0:
