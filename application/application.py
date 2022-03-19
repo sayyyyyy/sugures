@@ -24,25 +24,25 @@ def top():
 @app.route('/list/lat=<usr_lat>lng=<usr_lng>range=<usr_range>', methods=["GET", "POST"])
 def storelist(usr_lat, usr_lng, usr_range):
     if request.method == "POST":
-        store_data = json.loads(Path("php://input").read_text(encoding="utf-8"))
-        for i in store_data:
-            print(i)
-        return render_template('list.html', store_data=store_data)
+        pass
     elif request.method == "GET":
-        if usr_lat and usr_lng and usr_range:
-            restaurant_list = getliststoredata(usr_lat, usr_lng, usr_range)
-
-            return render_template('list.html', restaurant_list=restaurant_list)
-        
-        else:
+        if (usr_lat and usr_lng and usr_range) == False:
             redirect("/top")
+
+        restaurant_list = getliststoredata(usr_lat, usr_lng, usr_range)
+        return render_template('list.html', restaurant_list=restaurant_list)
         
-@app.route('/detail', methods=["GET", "POST"])
-def storedetail():
+            
+        
+@app.route('/detail/id=<store_id>', methods=["GET", "POST"])
+def storedetail(store_id):
     if request.method == "POST":
         pass
     else:
-        return render_template('detail.html')
+        if store_id:
+            restaurant_data = getdetailstoredata(store_id)
+        return render_template('detail.html', store_data=restaurant_data[next(iter(restaurant_data))])
+
 
 
 def getliststoredata(usr_lat, usr_lng, usr_range):
@@ -69,7 +69,6 @@ def getliststoredata(usr_lat, usr_lng, usr_range):
 
     return restaurant_list
 
-@app.route('/get_detail_store_data/id=<store_id>')
 def getdetailstoredata(store_id):
 
     query = {
@@ -78,10 +77,10 @@ def getdetailstoredata(store_id):
     }
 
     store_data = accessHotpepperAPI(query)
-    restaurant_list = {}
+    restaurant_data = {}
 
     for restaurant in store_data:
-        restaurant_list[restaurant['name']] = {
+        restaurant_data[restaurant['name']] = {
             'id': restaurant['name'],
             'name': restaurant['name'],
             'open': restaurant['open'],
@@ -99,9 +98,10 @@ def getdetailstoredata(store_id):
             'non_smoking': restaurant['non_smoking'],
             'free_food': restaurant['free_food'],
             'private_room': restaurant['private_room'],
-            'memo': restaurant['memo']
+            # 'memo': restaurant['memo']
         }
-    return jsonify(restaurant_list)
+
+    return restaurant_data
 
 def accessHotpepperAPI(unique_query):
     # API必要データ準備
@@ -127,7 +127,3 @@ def accessHotpepperAPI(unique_query):
         return 0
 
     return store_data
-
-# @app.route('/transition/<store_data>')
-# def transition(store_data):
-#     return render_template('list.html', store_data=store_data)

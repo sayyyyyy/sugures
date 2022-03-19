@@ -16,6 +16,7 @@
         <div id="result-body" class="result-body">
             {% for key in restaurant_list %}
             <div id="{{ restaurant_list[key]['id'] }}" class="store-container">
+                <button onclick="transition_detail('{{ restaurant_list[key]['id'] }}')">detail he</button>
                 <span class="store-name">{{ restaurant_list[key]['name'] }}</span>
                 <div class="store-left">
                     <img class="store-img" src ="{{ restaurant_list[key]['logo'] }}" alt="店舗イメージ">
