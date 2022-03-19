@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, jsonify
+from flask_paginate import Pagination, get_page_parameter
 from dotenv import load_dotenv
 import os
 import requests
@@ -17,14 +18,19 @@ def top():
     else:
         return render_template('top.html'), 
 
-@app.route('/list/lat=<usr_lat>lng=<usr_lng>range=<usr_range>', methods=["GET", "POST"])
-def storelist(usr_lat, usr_lng, usr_range):
+@app.route('/list/lat=<usr_lat>lng=<usr_lng>range=<usr_range>start=<start>', methods=["GET", "POST"])
+def storelist(usr_lat, usr_lng, usr_range, start):
     if request.method == "GET":
         if (usr_lat and usr_lng and usr_range) == False:
             redirect("/top")
 
-        restaurant_list = getliststoredata(usr_lat, usr_lng, usr_range)
-        return render_template('list.html', restaurant_list=restaurant_list)
+        restaurant_list = getliststoredata(usr_lat, usr_lng, usr_range, start)
+
+        page = request.args.get(get_page_parameter(), type=int, default=1)
+        res = restaurant_list[(page - 1)*10: page*10]
+
+        pagination = Pagination(page=page, total=restaurant_list[1], per_page=10, css_framework='bootstrap')
+        return render_template('list.html', restaurant_list=restaurant_list[0], total_num=restaurant_list[1])
 
     # GET以外でのアクセスを排除  
     else:
@@ -41,19 +47,21 @@ def storedetail(store_id):
         pass
 
 # 条件に基づく店舗データのリストを返す
-def getliststoredata(usr_lat, usr_lng, usr_range):
+def getliststoredata(usr_lat, usr_lng, usr_range, start):
     query = {
         'count': 100,
+        'start': start,
         'lat': usr_lat,
         'lng': usr_lng,   
         'range': usr_range,
     }
 
     store_data = accessHotpepperAPI(query)
+    total_num = store_data[1]
 
     restaurant_list = {}
 
-    for restaurant in store_data:
+    for restaurant in store_data[0]:
         restaurant_list[restaurant['name']] = {
             'id': restaurant['id'],
             'name': restaurant['name'],
@@ -61,10 +69,10 @@ def getliststoredata(usr_lat, usr_lng, usr_range):
             'genre': restaurant['genre']['name'],
             'catch': restaurant['catch'],
             # 'logo': restaurant['logo_image']
-            'logo': restaurant['photo']['pc']['s']
+            'logo': restaurant['photo']['pc']['l']
     }
 
-    return restaurant_list
+    return restaurant_list, total_num
 
 # 指定された店舗の詳細を返す
 def getdetailstoredata(store_id):
@@ -77,7 +85,7 @@ def getdetailstoredata(store_id):
     store_data = accessHotpepperAPI(query)
     restaurant_data = {}
 
-    for restaurant in store_data:
+    for restaurant in store_data[0]:
         restaurant_data[restaurant['name']] = {
             'id': restaurant['name'],
             'name': restaurant['name'],
@@ -128,4 +136,4 @@ def accessHotpepperAPI(unique_query):
     if len(store_data) == 0:
         return 0
 
-    return store_data
+    return store_data, total_num

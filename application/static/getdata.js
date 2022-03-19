@@ -11,7 +11,7 @@ function successCallback(position) {
     const usr_lat = position.coords.latitude;
     const usr_lng = position.coords.longitude;
     const usr_range = document.getElementById("search-distance").value;
-    transition_list(usr_lat, usr_lng, usr_range);
+    transition_list(usr_lat, usr_lng, usr_range, 1);
     loading('stop');
 }
 
@@ -19,8 +19,8 @@ function errorCallback(error) {
     alert(error);
 }
 
-function transition_list(lat, lng, range) {
-    const url = APPLICATION_URL + 'list/' + 'lat=' + lat + 'lng=' + lng + 'range=' + range;
+function transition_list(lat, lng, range, start) {
+    const url = APPLICATION_URL + 'list/' + 'lat=' + lat + 'lng=' + lng + 'range=' + range + 'start=' + start;
     window.location.href = url;
 }
 

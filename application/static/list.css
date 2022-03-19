@@ -1,9 +1,12 @@
 .store-container {
-    border: solid 1px gray;
+    border: solid 1px #dcdcdc;
     margin: 1rem;
     padding: 0.5rem;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
+    background-color: white;
+    -webkit-box-shadow: 10px 10px 20px -10px rgba(0, 0, 0, 0.8);
+    box-shadow: 10px 10px 20px -10px rgba(0, 0, 0, 0.8);
 }
 
 .search-res {
@@ -16,13 +19,25 @@
     font-size: 1.5rem;
     font-weight: 300;
 }
-.store-img {
-    width: 6rem;
-}
+
 
 .store-column {
     font-size: 1rem;
     font-weight: bold;
     color: #00AE95;
     margin-left: 0.5rem;
+}
+
+@media screen and (min-width:480px) { 
+    /*　画面サイズが480pxからはここを読み込む　*/
+    .store-img {
+        width: 100%;
+    }
+}
+@media screen and (min-width:768px) and ( max-width:1024px) {
+    /*　画面サイズが768pxから1024pxまではここを読み込む　*/
+}
+@media screen and (min-width:1024px) {
+    /*　画面サイズが1024pxからはここを読み込む　*/
+ 
 }

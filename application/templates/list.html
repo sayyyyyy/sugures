@@ -17,7 +17,14 @@
     <!-- リスト全体 -->
     <div class="result-container">
         <div class="result-header">
-            <span class="search-res">検索結果</span>
+            <span class="search-res">検索結果 ({{ total_num }} 件中
+                {% if total_num >= 10 %}
+                    10
+                {% else %}
+                    {{ total_num }}
+                {% endif %}
+                件表示)
+            </span>
         </div>
 
         <!-- 要素一つ -->
@@ -25,19 +32,21 @@
             {% for key in restaurant_list %}
             <div id="{{ restaurant_list[key]['id'] }}" class="store-container" onclick="transition_detail('{{ restaurant_list[key]['id'] }}')">
                 <span class="store-name">{{ restaurant_list[key]['name'] }}</span>
-                <div class="flex">
-                    <div class="store-left">
-                        <img class="store-img" src ="{{ restaurant_list[key]['logo'] }}" alt="店舗イメージ">
-                    </div>
-                    <div class="store-right">
-                        <div class="store-genre">
-                            <span class="store-column">ジャンル</span><br>
-                            <span class="store-main-genre">{{ restaurant_list[key]['genre'] }}</span><br>
-                            <span class="store-genre-catch">{{ restaurant_list[key]['catch'] }}</span>
+                <div class="store-center">
+                    <img class="store-img" src ="{{ restaurant_list[key]['logo'] }}" alt="店舗イメージ">
+                    <div class="store-genre">
+                        <div class="store-column">
+                            <i class="fa-solid fa-utensils"></i>
+                            <span class="store-column-lbl">ジャンル</span>
                         </div>
+                        <span class="store-main-genre">{{ restaurant_list[key]['genre'] }}</span><br>
+                        <span class="store-genre-catch">{{ restaurant_list[key]['catch'] }}</span>
                     </div>
                 </div>
-                <span class="store-column">アクセス</span><br>
+                <div class="store-column">
+                    <i class="fa-solid fa-car"></i>
+                    <span class="store-column-lbl">アクセス</span>
+                </div>
                 <span class="store-access">{{ restaurant_list[key]['access'] }}</span>
             </div>
             {% endfor %}
@@ -45,7 +54,6 @@
 
         <!-- ページング -->
         <div class="result-footer">
-            
         </div>
     </div>
 </div>
