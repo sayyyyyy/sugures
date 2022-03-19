@@ -17,21 +17,25 @@ def top():
             search_method = "search"
             search_range = request.form.get('search-distance')
         
-        getstoredata(10, 10 ,300)
         return redirect("/list")
     else:
         return render_template('top.html')
 
-@app.route('/list', methods=["GET", "POST"])
-def storelist():
+@app.route('/list/lat=<usr_lat>lng=<usr_lng>range=<usr_range>', methods=["GET", "POST"])
+def storelist(usr_lat, usr_lng, usr_range):
     if request.method == "POST":
         store_data = json.loads(Path("php://input").read_text(encoding="utf-8"))
         for i in store_data:
             print(i)
         return render_template('list.html', store_data=store_data)
-    else:
-        # return render_template('list.html')
-        return render_template('list.html')
+    elif request.method == "GET":
+        if usr_lat and usr_lng and usr_range:
+            restaurant_list = getliststoredata(usr_lat, usr_lng, usr_range)
+
+            return render_template('list.html', restaurant_list=restaurant_list)
+        
+        else:
+            redirect("/top")
         
 @app.route('/detail', methods=["GET", "POST"])
 def storedetail():
@@ -41,9 +45,7 @@ def storedetail():
         return render_template('detail.html')
 
 
-@app.route('/get_list_store_data/lat=<usr_lat>lng=<usr_lng>range=<usr_range>', methods=["GET"])
 def getliststoredata(usr_lat, usr_lng, usr_range):
-  
     query = {
         'count': 100,
         'lat': usr_lat,
@@ -63,11 +65,9 @@ def getliststoredata(usr_lat, usr_lng, usr_range):
             'genre': restaurant['genre']['name'],
             'catch': restaurant['catch'],
             'logo': restaurant['logo_image']
-        }
+    }
 
-    return jsonify(restaurant_list)
-
-
+    return restaurant_list
 
 @app.route('/get_detail_store_data/id=<store_id>')
 def getdetailstoredata(store_id):

@@ -14,21 +14,21 @@
             <select></select>
         </div>
         <div id="result-body" class="result-body">
-            <!-- {% for data in store_data %}
-            <div id="{{ data['id'] }}" class="store-container">
-                <span class="store-name">{{ data['name'] }}</span>
+            {% for key in restaurant_list %}
+            <div id="{{ restaurant_list[key]['id'] }}" class="store-container">
+                <span class="store-name">{{ restaurant_list[key]['name'] }}</span>
                 <div class="store-left">
-                    <img class="store-img" src ="{{ data['logo'] }}" alt="店舗イメージ">
+                    <img class="store-img" src ="{{ restaurant_list[key]['logo'] }}" alt="店舗イメージ">
                 </div>
                 <div class="store-right">
                     <div class="store-genre">
-                        <span class="store-main-genre">{{ data['genre'] }}</span>
-                        <span class="store-genre-catch">{{ data['catch'] }}</span>
+                        <span class="store-main-genre">{{ restaurant_list[key]['genre'] }}</span>
+                        <span class="store-genre-catch">{{ restaurant_list[key]['catch'] }}</span>
                     </div>
-                    <span class="store-access">{{ data['access'] }}</span>
+                    <span class="store-access">{{ restaurant_list[key]['access'] }}</span>
                 </div>
             </div>
-            {% endfor %} -->
+            {% endfor %}
         </div>
         <div class="result-footer">
             
