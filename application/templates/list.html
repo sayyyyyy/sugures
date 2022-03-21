@@ -28,31 +28,32 @@
 
         <!-- 要素一つ -->
         <div id="result-body" class="result-body">
-            {% for key in restaurant_list %}
-            <div id="{{ restaurant_list[key]['id'] }}" class="store-container" onclick="transition_detail('{{ restaurant_list[key]['id'] }}')">
-                <span class="store-name">{{ restaurant_list[key]['name'] }}</span>
+            {% for restaurant in restaurant_list %}
+            <div id="{{ restaurant['id'] }}" class="store-container" onclick="transition_detail('{{ restaurant['id'] }}')">
+                <span class="store-name">{{ restaurant['name'] }}</span>
                 <div class="store-center">
-                    <img class="store-img" src ="{{ restaurant_list[key]['logo'] }}" alt="店舗イメージ">
+                    <img class="store-img" src ="{{ restaurant['logo'] }}" alt="店舗イメージ">
                     <div class="store-genre">
                         <div class="store-column">
                             <i class="fa-solid fa-utensils"></i>
                             <span class="store-column-lbl">ジャンル</span>
                         </div>
-                        <span class="store-main-genre">{{ restaurant_list[key]['genre'] }}</span><br>
+                        <span class="store-main-genre">{{ restaurant['genre'] }}</span><br>
                     </div>
                 </div>
                 <div class="store-column">
                     <i class="fa-solid fa-car"></i>
                     <span class="store-column-lbl">アクセス</span>
                 </div>
-                <span class="store-access">{{ restaurant_list[key]['access'] }}</span><br>
-                <span class="store-genre-catch">{{ restaurant_list[key]['catch'] }}</span>
+                <span class="store-access">{{ restaurant['access'] }}</span><br>
+                <span class="store-genre-catch">{{ restaurant['catch'] }}</span>
             </div>
             {% endfor %}
         </div>
 
         <!-- ページング -->
         <div class="result-footer">
+            {{ pagination.links }}
         </div>
     </div>
 </div>

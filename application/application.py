@@ -31,10 +31,10 @@ def storelist(usr_lat, usr_lng, usr_range, start, genre):
             return render_template('no_store.html')
 
         page = request.args.get(get_page_parameter(), type=int, default=1)
-        res = restaurant_list[(page - 1)*10: page*10]
+        limit_restaurant_list = restaurant_list[0][(page - 1)*10: page*10]
 
         pagination = Pagination(page=page, total=restaurant_list[1], per_page=10, css_framework='bootstrap')
-        return render_template('list.html', restaurant_list=restaurant_list[0], total_num=restaurant_list[1])
+        return render_template('list.html', restaurant_list=limit_restaurant_list, total_num=restaurant_list[1], pagination=pagination)
 
     # GET以外でのアクセスを排除  
     else:
@@ -72,18 +72,17 @@ def getliststoredata(usr_lat, usr_lng, usr_range, start, genre):
 
     total_num = store_data[1]
 
-    restaurant_list = {}
+    restaurant_list = []
 
     for restaurant in store_data[0]:
-        restaurant_list[restaurant['name']] = {
+        restaurant_list.append({
             'id': restaurant['id'],
             'name': restaurant['name'],
             'access': restaurant['access'],
             'genre': restaurant['genre']['name'],
             'catch': restaurant['catch'],
-            # 'logo': restaurant['logo_image']
             'logo': restaurant['photo']['pc']['l']
-    }
+    })
 
     return restaurant_list, total_num
 
