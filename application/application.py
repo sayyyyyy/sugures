@@ -58,15 +58,18 @@ def getliststoredata(usr_lat, usr_lng, usr_range, start, genre):
         'lat': usr_lat,
         'lng': usr_lng,   
         'range': usr_range,
-        'genre': genre,
     }
+
+    if genre != "no_genre":
+        query['genre'] = genre
+
 
     store_data = accessHotpepperAPI(query)
 
     if (store_data == 0):
         print("none")
         return 0
-        
+
     total_num = store_data[1]
 
     restaurant_list = {}

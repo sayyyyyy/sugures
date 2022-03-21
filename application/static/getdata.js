@@ -13,7 +13,13 @@ function successCallback(position) {
     const usr_range = document.getElementById("search-distance").value;
     const selected_genre = document.getElementsByClassName("selected_genre");
     
-    transition_list(usr_lat, usr_lng, usr_range, 1, selected_genre[0].id);
+    if (selected_genre.length != 0) {
+        transition_list(usr_lat, usr_lng, usr_range, 1, selected_genre[0].id);
+    } else {
+        transition_list(usr_lat, usr_lng, usr_range, 1, "no_genre");
+    }
+    
+    
     loading('stop');
 }
 
