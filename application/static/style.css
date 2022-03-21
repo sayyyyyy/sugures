@@ -67,7 +67,7 @@ body {
     left: 0;
     top: 0.8rem;
     left: 1rem;
-    border: solid 1px gray;
+    border: none;
     border-radius: 10px;
 }
 

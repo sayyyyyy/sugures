@@ -42,19 +42,24 @@
     margin-top: 5rem;
 }
 
-@media screen and (min-width:480px) { 
+@media screen and (max-width:480px) { 
+
+}
+
+@media screen and (min-width:481px) and ( max-width:800px) {
     #result-body {
         display: grid;
         grid-template-columns: 50% 50%;
     }
-
 }
-@media screen and (min-width:768px) and ( max-width:1024px) {
+
+@media screen and (min-width:801px) and ( max-width:1023px) {
     #result-body {
         display: grid;
         grid-template-columns: 33% 33% 33%;
     }
 }
+
 @media screen and (min-width:1024px) {
     #result-body {
         display: grid;
