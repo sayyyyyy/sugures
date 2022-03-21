@@ -25,6 +25,10 @@ def storelist(usr_lat, usr_lng, usr_range, start, genre):
             redirect("/top")
 
         restaurant_list = getliststoredata(usr_lat, usr_lng, usr_range, start, genre)
+        
+        # 条件に合う店がなかった場合
+        if (restaurant_list == 0):
+            return render_template('no_store.html')
 
         page = request.args.get(get_page_parameter(), type=int, default=1)
         res = restaurant_list[(page - 1)*10: page*10]
@@ -58,6 +62,11 @@ def getliststoredata(usr_lat, usr_lng, usr_range, start, genre):
     }
 
     store_data = accessHotpepperAPI(query)
+
+    if (store_data == 0):
+        print("none")
+        return 0
+        
     total_num = store_data[1]
 
     restaurant_list = {}

@@ -1,0 +1,6 @@
+.result-container {
+    position: relative;
+    top: 5rem;
+    display: flex;
+    justify-content: center;
+}
