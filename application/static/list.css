@@ -37,6 +37,11 @@
     font-weight: bold;
 }
 
+.result-container {
+    position: relative;
+    margin-top: 5rem;
+}
+
 @media screen and (min-width:480px) { 
     #result-body {
         display: grid;

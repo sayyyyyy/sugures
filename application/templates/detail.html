@@ -5,47 +5,44 @@
 {% block body %}
 <!-- ページ全体 -->
 <div class="page-body">
-
-    <button class="back-btn" onclick="history.back()">戻る</button>
     
     <!-- タイトル -->
     <div class="title-container">
-        <h1 class="page-title">すぐレス</h1>
-        <span class="">食べにいきたいお店がすぐ見つかる！</span>
+        <button class="back-btn" onclick="history.back()">戻る</button>
+        <h1 class="page-title"><span class="isblack">すぐ</span>レス</h1>
+        <img class="title-logo" src="{{ url_for('static', filename='images/favicon.ico') }}">
     </div>
 
     <!-- 店舗情報 -->
     <div id="{{ store_data['id'] }}" class="detail-container">
         <h2 class="detail-store-name">{{ store_data['name'] }}</h2>
         <img class="detail-store-img" src="{{ store_data['logo'] }}" alt="店舗イメージ">
-        <div class="store-info">
-            <table border="1px">
-                <tr class="store-operating-container"> 
-                    <th>営業時間</th>
-                    <th class="store-operating">{{ store_data['open'] }}</th>
-                </tr>
-                <tr class="store-adress-container">
-                    <th>住所</th>
-                    <th class="store-adress">{{ store_data['address'] }}</th>
-                </tr>
-                <tr class="store-access-container">
-                    <th>最寄り駅</th>
-                    <th class="store-station">{{ store_data['station'] }}</th>
-                </tr>
-                <tr class="store-access-container">
-                    <th>アクセス</th>
-                    <th class="store-access">{{ store_data['access'] }}</th>
-                </tr>
-                <tr class="store-close-container">
-                    <th>定休日</th>
-                    <th class="store-close">{{ store_data['close'] }}</th>
-                </tr>
-                <tr class="store-url-container">
-                    <th>URL</th>
-                    <th class="store-url">{{ store_data['url'] }}</th>
-                </tr>
-            </table>
-        </div>
+        <table class="store-info">
+            <tr class="store-operating-container"> 
+                <th>営業時間</th>
+                <th class="store-operating">{{ store_data['open'] }}</th>
+            </tr>
+            <tr class="store-adress-container">
+                <th>住所</th>
+                <th class="store-adress">{{ store_data['address'] }}</th>
+            </tr>
+            <tr class="store-access-container">
+                <th>最寄り駅</th>
+                <th class="store-station">{{ store_data['station'] }}</th>
+            </tr>
+            <tr class="store-access-container">
+                <th>アクセス</th>
+                <th class="store-access">{{ store_data['access'] }}</th>
+            </tr>
+            <tr class="store-close-container">
+                <th>定休日</th>
+                <th class="store-close">{{ store_data['close'] }}</th>
+            </tr>
+            <tr class="store-url-container">
+                <th>URL</th>
+                <th class="store-url">{{ store_data['url'] }}</th>
+            </tr>
+        </table>
     </div>
 
 
