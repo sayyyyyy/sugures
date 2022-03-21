@@ -31,6 +31,10 @@
     font-weight: bold;
 }
 
+.title-logo {
+    
+}
+
 .page-explanation {
     font-size: 2rem;
     font-weight: 500;
@@ -107,4 +111,8 @@ body {
 
 .search-btn:hover {
     background: #F68B1F;
+}
+
+.range-heading {
+    font-size: 1.3rem;
 }
