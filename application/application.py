@@ -18,13 +18,13 @@ def top():
     else:
         return render_template('top.html'), 
 
-@app.route('/list/lat=<usr_lat>lng=<usr_lng>range=<usr_range>start=<start>', methods=["GET", "POST"])
-def storelist(usr_lat, usr_lng, usr_range, start):
+@app.route('/list/lat=<usr_lat>lng=<usr_lng>range=<usr_range>start=<start>genre=<genre>', methods=["GET", "POST"])
+def storelist(usr_lat, usr_lng, usr_range, start, genre):
     if request.method == "GET":
         if (usr_lat and usr_lng and usr_range) == False:
             redirect("/top")
 
-        restaurant_list = getliststoredata(usr_lat, usr_lng, usr_range, start)
+        restaurant_list = getliststoredata(usr_lat, usr_lng, usr_range, start, genre)
 
         page = request.args.get(get_page_parameter(), type=int, default=1)
         res = restaurant_list[(page - 1)*10: page*10]
@@ -47,13 +47,14 @@ def storedetail(store_id):
         pass
 
 # 条件に基づく店舗データのリストを返す
-def getliststoredata(usr_lat, usr_lng, usr_range, start):
+def getliststoredata(usr_lat, usr_lng, usr_range, start, genre):
     query = {
         'count': 100,
         'start': start,
         'lat': usr_lat,
         'lng': usr_lng,   
         'range': usr_range,
+        'genre': genre,
     }
 
     store_data = accessHotpepperAPI(query)

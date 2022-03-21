@@ -3,7 +3,7 @@
 /* calc(var(--phone-vh, 1vh) * 0)で指定 */
 
 .page-title {
-    color: orange;
+    color: #F68B1F;
 }
 
 /* ローディング画面 */
@@ -11,7 +11,7 @@
     width: 100vw;
     height: 100vh;
     transition: all 1s;
-    background-color: orange;
+    background-color: #F68B1F;
     position: fixed;
     top: 0;
     left: 0;

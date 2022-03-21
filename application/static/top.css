@@ -53,3 +53,16 @@ body {
 .random-search-container {
     position: relative;
 }
+
+.genre-select {
+    background: #FFF;
+    border: solid 2px #000;
+    border-radius: 1rem;
+    padding: 0.2rem;
+    margin: 0.2rem;
+}
+
+.selected_genre {
+    background: #F68B1F;
+    color: #FFF;
+}
