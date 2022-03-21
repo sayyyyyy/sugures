@@ -14,14 +14,17 @@
 
         <!-- タイトル -->
         <div class="top-title-container" style="background-image: url('{{ url_for('static', filename='images/dish.jpg') }}');">
-            <h1 class="page-title">すぐレス</h1>
+            <div class="flex">
+                <h1 class="page-title"><span class="isblack">すぐ</span>レス</h1>
+                <img class="title-logo" src="{{ url_for('static', filename='images/favicon.ico') }}">
+            </div>
             <span class="page-explanation">食べにいきたいお店がすぐ見つかる！</span>
         </div>
 
         <!-- 検索ボックス -->
         <div class="search-container">
             <div class="range-container">
-                <span>検索範囲(m)</span>
+                <span class="range-heading">検索範囲(m)</span>
                 <select id="search-distance" name="search-distance">
                     <option value="1">~300</option>
                     <option value="2">~500</option>
@@ -29,24 +32,27 @@
                     <option value="4">~2000</option>
                     <option value="5">~3000</option>
                 </select>
-                <div class="genre">
-                    <span>ジャンル</span>
-                    <span id="G001" class="genre-select" onclick="selectGenre('G001')">居酒屋</span>
-                    <span id="G002" class="genre-select" onclick="selectGenre('G002')">ダイイングバー・バル</span>
-                    <span id="G003" class="genre-select" onclick="selectGenre('G003')">創作料理</span>
-                    <span id="G004" class="genre-select" onclick="selectGenre('G004')">和食</span>
-                    <span id="G005" class="genre-select" onclick="selectGenre('G005')">洋食</span>
-                    <span id="G006" class="genre-select" onclick="selectGenre('G006')">イタリアン・フレンチ</span>
-                    <span id="G007" class="genre-select" onclick="selectGenre('G007')">焼肉</span>
-                    <span id="G008" class="genre-select" onclick="selectGenre('G008')">韓国料理</span>
-                    <span id="G009" class="genre-select" onclick="selectGenre('G009')">アジア・エスニック料理</span>
-                    <span id="G010" class="genre-select" onclick="selectGenre('G010')">カラオケ・パーティ</span>
-                    <span id="G011" class="genre-select" onclick="selectGenre('G011')">バー・カクテル</span>
-                    <span id="G012" class="genre-select" onclick="selectGenre('G012')">ラーメン</span>
-                    <span id="G013" class="genre-select" onclick="selectGenre('G013')">お好み焼き・もんじゃ</span>
-                    <span id="G014" class="genre-select" onclick="selectGenre('G014')">カフェ・スイーツ</span>
-                    <span id="G015" class="genre-select" onclick="selectGenre('G015')">その他グルメ</span>
+            </div>
+            <div class="genre">
+                <div class="flex">
+                    <i class="fa-solid fa-utensils genre-icon"></i>
+                    <div class="genre-heading">ジャンル</div>
                 </div>
+                <span id="G001" class="genre-select" onclick="selectGenre('G001')">居酒屋</span>
+                <span id="G002" class="genre-select" onclick="selectGenre('G002')">ダイイングバー・バル</span>
+                <span id="G003" class="genre-select" onclick="selectGenre('G003')">創作料理</span>
+                <span id="G004" class="genre-select" onclick="selectGenre('G004')">和食</span>
+                <span id="G005" class="genre-select" onclick="selectGenre('G005')">洋食</span>
+                <span id="G006" class="genre-select" onclick="selectGenre('G006')">イタリアン・フレンチ</span>
+                <span id="G007" class="genre-select" onclick="selectGenre('G007')">焼肉</span>
+                <span id="G008" class="genre-select" onclick="selectGenre('G008')">韓国料理</span>
+                <span id="G009" class="genre-select" onclick="selectGenre('G009')">アジア・エスニック料理</span>
+                <span id="G010" class="genre-select" onclick="selectGenre('G010')">カラオケ・パーティ</span>
+                <span id="G011" class="genre-select" onclick="selectGenre('G011')">バー・カクテル</span>
+                <span id="G012" class="genre-select" onclick="selectGenre('G012')">ラーメン</span>
+                <span id="G013" class="genre-select" onclick="selectGenre('G013')">お好み焼き・もんじゃ</span>
+                <span id="G014" class="genre-select" onclick="selectGenre('G014')">カフェ・スイーツ</span>
+                <span id="G015" class="genre-select" onclick="selectGenre('G015')">その他グルメ</span>
             </div>
             <button class="search-btn" onclick="callGeolocation()">検索する</button>
         </div>

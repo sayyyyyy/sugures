@@ -46,23 +46,65 @@ body {
     position: relative;
     top: 3rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .random-search-container {
     position: relative;
+    top: 5rem;
 }
 
 .genre-select {
+    display: inline-block;
     background: #FFF;
     border: solid 2px #000;
     border-radius: 1rem;
-    padding: 0.2rem;
+    padding: 0.5rem;
     margin: 0.2rem;
+    cursor: pointer;
 }
 
 .selected_genre {
     background: #F68B1F;
     color: #FFF;
+    font-weight: bold;
+}
+
+.genre {
+    border: solid 2px #000;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.random-view-container {
+    position: relative;
+    top: 5rem;
+}
+
+.range-heading {
+
+}
+
+.genre-icon {
+    font-size: 1.3rem;
+    position: relative;
+    top: 0.5rem;
+}
+
+.genre-heading {
+    font-size: 1.5rem;
+}
+
+.search-btn {
+    border: solid 2px #F68B1F;
+    background: #FFF;
+    width: 10rem;
+    font-size: 1.5rem;
+    border-radius: 2rem;
+}
+
+.search-btn:hover {
+    background: #F68B1F;
 }

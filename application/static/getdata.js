@@ -55,10 +55,16 @@ function selectGenre(genre_id) {
     const selected_genre = document.getElementsByClassName("selected_genre");
     if (selected_genre.length != 0) {
         for (let i = 0; i < selected_genre.length; i++) {
+            if (selected_genre[0].id == genre_id) {
+                selected_genre[i].classList.remove("selected_genre");
+                return
+            }
+
             selected_genre[i].classList.remove("selected_genre");
         }
     }
 
+    
     const select_element = document.getElementById(genre_id);
     select_element.classList.add("selected_genre");
 }

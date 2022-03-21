@@ -36,6 +36,7 @@
 }
 
 .store-other span {
+    display: inline-block;
     background: #00AE95;
     color: #fff;
     padding: 0.3rem;
