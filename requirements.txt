@@ -1,2 +1,7 @@
 Flask
 python-dotenv
+gunicorn
+itsdangerous
+Click
+Werkzeug
+MarkupSafe
