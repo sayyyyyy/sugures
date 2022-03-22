@@ -7,7 +7,7 @@
 様々な条件から最寄りの飲食店を検索できます。
 
 ## アプリURL
-https://sayyyyyy.pythonanywhere.com/
+https://sugures.herokuapp.com/
 
 ## 対象ブラウザ
 - Google Chrome
@@ -48,6 +48,7 @@ https://sayyyyyy.pythonanywhere.com/
 - Flask 2.0.3
 - python-dotenv 0.19.2
 - flask-paginate 2022.1.8
+- gunicorn 20.1.0
 
 - ホットペッパーグルメサーチAPI
 
