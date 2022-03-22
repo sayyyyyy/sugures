@@ -4,6 +4,12 @@ const APPLICATION_URL = 'https://sugures.herokuapp.com/';
 // 店舗リスト画面に遷移するまで
 function callGeolocation() {
     loading('start');
+    if(navigator.geolocation) {
+        alert("現在地を取得できます");
+    } else {
+        alert("現在地を取得できません");
+    }
+
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
 }
 
@@ -24,7 +30,16 @@ function successCallback(position) {
 }
 
 function errorCallback(error) {
-    alert("位置情報をオンにしていください");
+    if (error.code == 1) {
+        alert("位置情報をオンにしていください");
+    } else if (error.code == 2) {
+        alert("デバイスの位置が判定できません");
+    } else if (error.code == 3) {
+        alert("タイムアウトしました");
+    } else {
+        alert("位置情報を取得できませんでした")
+    }
+    
     loading('stop');
     window.location.href = APPLICATION_URL;
 }
