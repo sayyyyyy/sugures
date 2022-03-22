@@ -150,3 +150,6 @@ def accessHotpepperAPI(unique_query):
         return 0
 
     return store_data, total_num
+
+if __name__ == '__main__':
+    app.run(debug=False)
