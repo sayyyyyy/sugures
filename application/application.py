@@ -138,13 +138,14 @@ def accessHotpepperAPI(unique_query):
     for key in unique_query:
         query[key] = unique_query[key]
 
-    try:
-        store_raw_data = requests.get(hotpepper_api_url, query)
-        print("成功！")
-    except:
-        print(json.loads(store_raw_data))
-        print(json.loads(store_raw_data)['result'])
-        print(json.loads(store_raw_data)['result'['error']])
+    store_raw_data = requests.get(hotpepper_api_url, query)
+    print(store_raw_data['result'])
+    print(store_raw_data['result']['error'])
+    print(store_raw_data['result']['error']['code'])
+    print(json.loads(store_raw_data))
+    print(json.loads(store_raw_data)['result'])
+    print(json.loads(store_raw_data)['result']['error'])
+    print(json.loads(store_raw_data)['result']['error']['code'])
     # total_num = json.loads(store_raw_data.text)['results']['results_available']
     # store_data = json.loads(store_raw_data.text)['results']['shop']
 
