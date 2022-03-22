@@ -42,6 +42,13 @@
     margin-top: 5rem;
 }
 
+.result-footer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 3rem;
+}
+
 @media screen and (max-width:480px) { 
 
 }

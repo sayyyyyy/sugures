@@ -65,9 +65,9 @@ body {
 .back-btn {
     position: absolute;
     left: 0;
-    top: 0.8rem;
     left: 1rem;
     border: none;
+    font-size: 1.5rem;
     border-radius: 10px;
 }
 
@@ -81,13 +81,20 @@ body {
     bottom: 0.3rem;
 }
 
-@media screen and (min-width:480px) { 
-    /*　画面サイズが480pxからはここを読み込む　*/
+@media screen and (min-width:480px) and (max-width:767px) { 
+    body  {
+        font-size: 14px;
+    }    
 }
+
 @media screen and (min-width:768px) and ( max-width:1024px) {
-    /*　画面サイズが768pxから1024pxまではここを読み込む　*/
+    body {
+        font-size: 16px;
+    }
 }
 @media screen and (min-width:1024px) {
-    /*　画面サイズが1024pxからはここを読み込む　*/
+    body {
+        font-size: 18px;
+    }
  
 }
