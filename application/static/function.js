@@ -24,7 +24,9 @@ function successCallback(position) {
 }
 
 function errorCallback(error) {
-    alert(error);
+    alert("位置情報をオンにしていください");
+    loading('stop');
+    window.location.href = APPLICATION_URL;
 }
 
 function transition_list(lat, lng, range, start, genre) {
