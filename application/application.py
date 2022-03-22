@@ -1,10 +1,9 @@
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect
 from flask_paginate import Pagination, get_page_parameter
 from dotenv import load_dotenv
 import os
 import requests
 import json
-from pathlib import Path
 
 app = Flask(__name__)
 load_dotenv()
@@ -140,6 +139,7 @@ def accessHotpepperAPI(unique_query):
         query[key] = unique_query[key]
 
     store_raw_data = requests.get(hotpepper_api_url, query)
+    print(store_raw_data)
     total_num = json.loads(store_raw_data.text)['results']['results_available']
     store_data = json.loads(store_raw_data.text)['results']['shop']
 
