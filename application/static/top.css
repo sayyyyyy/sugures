@@ -94,6 +94,7 @@
 
 .genre .flex {
     margin-left: 1rem;
+    margin-bottom: 1rem;
 }
 
 .genre-heading {
@@ -102,7 +103,7 @@
 
 .search-btn {
     border: solid 2px #F68B1F;
-    background: #FFF;
+
     width: 10rem;
     font-size: 1.5rem;
     border-radius: 2rem;
@@ -116,9 +117,6 @@
     font-size: 1.3rem;
 }
 
-#search-distance {
-
-}
 
 @media screen and (min-width:768px) and ( max-width:1024px) {
     .genre-container {
