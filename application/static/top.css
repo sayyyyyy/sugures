@@ -32,7 +32,7 @@
 }
 
 .title-logo {
-    
+    width: 2rem;
 }
 
 .page-explanation {
@@ -59,7 +59,7 @@
 .genre-select {
     display: inline-block;
     background: #FFF;
-    border: solid 2px #000;
+    /* border: solid 2px #000; */
     border-radius: 1rem;
     padding: 0.5rem;
     margin: 0.2rem;
@@ -73,7 +73,6 @@
 }
 
 .genre {
-    border: solid 2px #000;
     margin: 0.5rem;
     padding: 0.5rem;
 }
@@ -91,6 +90,10 @@
     font-size: 1.3rem;
     position: relative;
     top: 0.5rem;
+}
+
+.genre .flex {
+    margin-left: 1rem;
 }
 
 .genre-heading {
@@ -115,4 +118,15 @@
 
 #search-distance {
 
+}
+
+@media screen and (min-width:768px) and ( max-width:1024px) {
+    .genre-container {
+        margin-left: 2rem;
+    }
+}
+@media screen and (min-width:1024px) {
+    .genre-container {
+        margin-left: 2rem;
+    }
 }
