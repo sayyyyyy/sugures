@@ -6,6 +6,9 @@
 ## 概要
 様々な条件から最寄りの飲食店を検索できます。
 
+## アプリURL
+https://sayyyyyy.pythonanywhere.com/
+
 ## 対象ブラウザ
 - Google Chrome
 - Safari
