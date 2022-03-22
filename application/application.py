@@ -139,9 +139,6 @@ def accessHotpepperAPI(unique_query):
         query[key] = unique_query[key]
 
     store_raw_data = requests.get(hotpepper_api_url, query)
-    print(store_raw_data['result'])
-    print(store_raw_data['result']['error'])
-    print(store_raw_data['result']['error']['code'])
     print(json.loads(store_raw_data))
     print(json.loads(store_raw_data)['result'])
     print(json.loads(store_raw_data)['result']['error'])

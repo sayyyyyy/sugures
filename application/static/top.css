@@ -117,6 +117,12 @@
     font-size: 1.3rem;
 }
 
+.hotpepper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 7rem;
+}
 
 @media screen and (min-width:768px) and ( max-width:1024px) {
     .genre-container {
