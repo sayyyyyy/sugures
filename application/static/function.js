@@ -5,9 +5,9 @@ const APPLICATION_URL = 'https://sugures.herokuapp.com/';
 function callGeolocation() {
     loading('start');
     if(navigator.geolocation) {
-        alert("現在地を取得できます");
+        console.log("現在地を取得できます");
     } else {
-        alert("現在地を取得できません");
+        console.log("現在地を取得できません");
     }
 
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
