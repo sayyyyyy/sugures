@@ -50,7 +50,7 @@ function transition_detail(store_id) {
 }
 
 
-
+// ジャンルを選択した時の処理
 function selectGenre(genre_id) {
     const selected_genre = document.getElementsByClassName("selected_genre");
     if (selected_genre.length != 0) {
@@ -68,3 +68,21 @@ function selectGenre(genre_id) {
     const select_element = document.getElementById(genre_id);
     select_element.classList.add("selected_genre");
 }
+
+
+// トップに戻る
+$(function(){
+    var pagetop = $('#page-top');
+    pagetop.hide();
+    $(window).scroll(function () {
+       if ($(this).scrollTop() > 100) {
+            pagetop.fadeIn();
+       } else {
+            pagetop.fadeOut();
+       }
+    });
+    pagetop.click(function () {
+       $('body, html').animate({ scrollTop: 0 }, 50);
+       return false;
+    });
+  });

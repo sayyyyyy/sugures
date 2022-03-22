@@ -1,3 +1,20 @@
+
+/* メイン要素 */
+.result-container {
+    position: relative;
+    margin-top: 5rem;
+}
+
+.search-res {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+    font-size: 1.2rem;
+    position: relative;
+    top: 2rem;
+}
+
 .store-container {
     border: solid 1px #dcdcdc;
     margin: 1rem;
@@ -7,12 +24,6 @@
     background-color: white;
     -webkit-box-shadow: 10px 10px 20px -10px rgba(0, 0, 0, 0.8);
     box-shadow: 10px 10px 20px -10px rgba(0, 0, 0, 0.8);
-}
-
-.search-res {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .store-name {
@@ -37,11 +48,10 @@
     font-weight: bold;
 }
 
-.result-container {
-    position: relative;
-    margin-top: 5rem;
-}
 
+
+
+/* ページネーション */
 .result-footer {
     display: flex;
     justify-content: center;
@@ -49,6 +59,27 @@
     top: 3rem;
 }
 
+/* トップに戻る */
+#page-top {
+    width: 4rem;
+    height: 4rem;
+    position: fixed;
+    right: 2rem;
+    bottom: 4rem;
+    background: #F68B1F;
+    opacity: 0.6;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+#pagetop a{
+    text-decoration: none;
+  }
+
+  
 @media screen and (max-width:480px) { 
 
 }

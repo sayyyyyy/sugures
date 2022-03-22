@@ -9,7 +9,7 @@ from pathlib import Path
 app = Flask(__name__)
 load_dotenv()
 
-@app.route('/', methods=["GET", "POST"])
+@app.route('/top', methods=["GET", "POST"])
 def top():
     if request.method == "GET":
         return render_template('top.html')
