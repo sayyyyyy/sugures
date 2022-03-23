@@ -10,8 +10,8 @@
 https://sugures.herokuapp.com/
 
 ## 対象ブラウザ
-- Google Chrome
-- Safari
+- Google Chrome 99.0.4844.74
+- Firefox 98.0.1
 
 ## 開発環境
 ### 開発OS
@@ -27,7 +27,7 @@ https://sugures.herokuapp.com/
 - GitHub
 
 ### クラウド
-- 
+- Heroku
 
 ## 開発期間
 - 13日
@@ -50,7 +50,7 @@ https://sugures.herokuapp.com/
 - flask-paginate 2022.1.8
 - gunicorn 20.1.0
 
-- ホットペッパーグルメサーチAPI
+- ホットペッパーグルメサーチAPI 1.26
 
 ## テーブル定義
 データベースは使用していない

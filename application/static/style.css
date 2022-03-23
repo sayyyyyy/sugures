@@ -81,6 +81,10 @@ body {
     bottom: 0.3rem;
 }
 
+a {
+    text-decoration: none;
+}
+
 @media screen and (min-width:480px) and (max-width:767px) { 
     body  {
         font-size: 14px;
@@ -97,4 +101,8 @@ body {
         font-size: 18px;
     }
  
+}
+
+.title-container a {
+    display: flex;
 }

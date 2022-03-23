@@ -59,7 +59,6 @@
 .genre-select {
     display: inline-block;
     background: #FFF;
-    /* border: solid 2px #000; */
     border-radius: 1rem;
     padding: 0.5rem;
     margin: 0.2rem;
@@ -82,9 +81,6 @@
     top: 5rem;
 }
 
-.range-heading {
-
-}
 
 .genre-icon {
     font-size: 1.3rem;
@@ -117,6 +113,8 @@
     font-size: 1.3rem;
 }
 
+
+/* クレジット記載 */
 .hotpepper {
     position: relative;
     display: flex;
@@ -133,4 +131,27 @@
     .genre-container {
         margin-left: 2rem;
     }
+}
+
+/* ランダム表示 */
+.random-view-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+
+.random-view {
+    margin: 1rem;
+}
+
+.random-store-name {
+    font-size: 1.2rem;
+}
+
+.random-ex {
+    position: relative;
+    top: 4rem;
+    font-size: 1.5rem;
+    left: 1rem;
+    color: #F68B1F;
 }

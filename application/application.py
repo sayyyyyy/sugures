@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os
 import requests
 import json
+import random
 
 app = Flask(__name__)
 load_dotenv()
@@ -12,17 +13,20 @@ load_dotenv()
 @app.route('/', methods=["GET", "POST"])
 def top():
     if request.method == "GET":
-        return render_template('top.html')
+        store_data = randomstoredata()
+        print(store_data)
+
+        return render_template('top.html', random_view=store_data)
     
     # GET以外でのアクセスを排除
     else:
-        return render_template('top.html'), 
+        return render_template('top.html') 
 
 @app.route('/list/lat=<usr_lat>lng=<usr_lng>range=<usr_range>start=<start>genre=<genre>', methods=["GET", "POST"])
 def storelist(usr_lat, usr_lng, usr_range, start, genre):
     if request.method == "GET":
         if (usr_lat and usr_lng and usr_range) == False:
-            redirect("/top")
+            return redirect("/top")
 
         restaurant_list = getliststoredata(usr_lat, usr_lng, usr_range, start, genre)
         
@@ -38,7 +42,7 @@ def storelist(usr_lat, usr_lng, usr_range, start, genre):
 
     # GET以外でのアクセスを排除  
     else:
-        pass
+        return redirect("/")
         
 @app.route('/detail/id=<store_id>', methods=["GET"])
 def storedetail(store_id):
@@ -48,7 +52,7 @@ def storedetail(store_id):
         return render_template('detail.html', store_data=restaurant_data[next(iter(restaurant_data))])
     
     else:
-        pass
+        return redirect("/")
 
 # 条件に基づく店舗データのリストを返す
 def getliststoredata(usr_lat, usr_lng, usr_range, start, genre):
@@ -143,14 +147,38 @@ def accessHotpepperAPI(unique_query):
     total_num = json.loads(store_raw_data.text)['results']['results_available']
     store_data = json.loads(store_raw_data.text)['results']['shop']
 
-    print(total_num)
-    print(store_data)
 
     # データが見つからなかった場合
     if len(store_data) == 0:
         return 0
 
     return store_data, total_num
+
+
+def randomstoredata():
+
+    jp = ["あ","い","う","え","お","か","き","く","け","こ","さ","し","す","せ","そ","た","ち","つ","て","と","な","に","ぬ","ね","の","は","ひ","ふ","へ","ほ","ま","み","む","め","も","や","ゆ","よ","ら","り","る","れ","ろ","わ","を","ん"]
+
+
+    query = {
+        'keyword': jp[random.randint(0, 45)],
+        'start': 1,
+        'count': 5,
+        'order': random.randint(1, 4)
+    }
+
+
+    store_data = accessHotpepperAPI(query)
+    restaurant_data = []
+
+    for restaurant in store_data[0]:
+        restaurant_data.append({
+            'id': restaurant['id'],
+            'name': restaurant['name'],
+            'logo': restaurant['photo']['pc']['l'],
+        })
+
+    return restaurant_data
 
 if __name__ == '__main__':
     app.run(debug=False)
