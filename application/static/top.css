@@ -43,6 +43,7 @@
     font-weight: 500;
     -webkit-text-stroke: 1px #FFF;
     text-stroke: 1px #FFF;
+    margin-left: 1rem;
 }
 
 /* 検索ブロック */
