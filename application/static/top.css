@@ -1,3 +1,4 @@
+/* タイトルブロック */
 .top-title-container {
     background-size: cover;
     background-repeat: no-repeat;
@@ -32,7 +33,9 @@
 }
 
 .title-logo {
-    width: 2rem;
+    width: 3rem;
+    height: 3rem;
+    bottom: 0;
 }
 
 .page-explanation {
@@ -42,6 +45,7 @@
     text-stroke: 1px #FFF;
 }
 
+/* 検索ブロック */
 .search-container {
     position: relative;
     top: 3rem;
@@ -49,11 +53,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.random-search-container {
-    position: relative;
-    top: 5rem;
 }
 
 .genre-select {
@@ -75,12 +74,6 @@
     margin: 0.5rem;
     padding: 0.5rem;
 }
-
-.random-view-container {
-    position: relative;
-    top: 5rem;
-}
-
 
 .genre-icon {
     font-size: 1.3rem;
@@ -122,26 +115,26 @@
     top: 7rem;
 }
 
-@media screen and (min-width:768px) and ( max-width:1024px) {
-    .genre-container {
-        margin-left: 2rem;
-    }
-}
-@media screen and (min-width:1024px) {
-    .genre-container {
-        margin-left: 2rem;
-    }
-}
 
 /* ランダム表示 */
 .random-view-container {
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
+    position: relative;
+    top: 5rem;
 }
 
 .random-view {
     margin: 1rem;
+    border: solid 1px #dcdcdc;
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: white;
+    -webkit-box-shadow: 10px 10px 20px -10px rgba(0, 0, 0, 0.8);
+    box-shadow: 10px 10px 20px -10px rgba(0, 0, 0, 0.8);
 }
 
 .random-store-name {
@@ -154,4 +147,16 @@
     font-size: 1.5rem;
     left: 1rem;
     color: #F68B1F;
+}
+
+
+@media screen and (min-width:768px) and ( max-width:1024px) {
+    .genre-container {
+        margin-left: 2rem;
+    }
+}
+@media screen and (min-width:1024px) {
+    .genre-container {
+        margin-left: 2rem;
+    }
 }

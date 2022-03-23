@@ -1,6 +1,5 @@
 // 定数の設定
-// const APPLICATION_URL = 'https://sugures.herokuapp.com/';
-const APPLICATION_URL = 'http://127.0.0.1:5000/';
+const APPLICATION_URL = 'https://sugures.herokuapp.com/';
 
 // 店舗リスト画面に遷移するまで
 function callGeolocation() {
